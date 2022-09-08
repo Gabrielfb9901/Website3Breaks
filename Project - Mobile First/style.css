@@ -1,0 +1,315 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+
+  font-size: 62.5%;
+
+  --hue: 275;
+  --fc-background: hsl(218, 17%, 62%);
+  --sl-color: hsl(var(--hue), 0%, 100%);
+  --bch1-color: hsl(var(--hue), 18%, 79%);
+  --sc-background: hsl(var(--hue),100%,97%);
+  --cc-color: hsl(var(--hue),17%,35%);
+
+  --ff-body: 'Staatliches';
+  --ff-sc: 'Palanquin';
+}
+
+body{
+  height: 100vh;
+  font-family: var(--ff-body);
+  font-style: normal;
+  font-weight: 400;
+  background-color: var(--sc-background);
+  max-width: clamp(39rem 5rem +8vp 120rem);
+  padding: auto;
+  margin: 0 auto;
+  margin-bottom: 3.2rem;
+}
+
+header{
+  background-color: var( --fc-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3.4rem;
+}
+
+
+
+header img{
+  margin-top: 3.2rem;
+}
+
+div.block{
+  background-color: var(--bch1-color);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3.2rem;
+  margin-bottom: 2.9rem;
+}
+
+header h1{
+  font-size: 4rem;
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+  color: var(--sl-color);
+  padding: 0.8rem;
+  
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  align-items: center;
+ 
+}
+
+main div:nth-child(5){
+  display: none;
+}
+
+main div:nth-child(6){
+  display:none;
+}
+
+.paragraph{
+  padding: 3.2rem;
+  width: 100%;
+  background: var(--sc-background);
+}
+
+.paragraph p{
+  width: 30.5rem;
+  margin: 0 auto;
+  line-height: 1.5rem;
+  font-family: var(--ff-sc);
+
+}
+
+.card{
+  position: relative;
+}
+
+.card img{
+  animation: topdown 1s 200ms backwards;
+}
+
+.card h2{
+  display: inline-flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  top: 1.6rem;
+  right: 1.6rem;
+
+  color: var(--cc-color);
+  background-color: var(--sl-color);
+
+  border-radius: 2rem;
+  padding: 0.1rem 2.3rem;
+
+  line-height: 3.4rem;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+
+  animation: downtop 800ms 200ms backwards;
+}
+
+
+@keyframes topdown{
+  0%{
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100%{
+    opacity: 100;
+    transform: translate(0);
+  }
+}
+
+@keyframes downtop{
+  0%{
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100%{
+    opacity: 100;
+    transform: translatex(0);
+  }
+}
+
+@media (min-width: 1000px){
+
+  .page{
+    display: grid;
+    grid-template-areas: "A B B B B";
+    height: 100%;
+  }
+
+  header{
+    width: 30rem;
+    grid-area: A;
+    height: 100%;
+  }
+
+  .paragraph{
+    padding: 2rem 0;
+    width: 25rem;
+    background-color: var(--fc-background);
+  }
+
+  .paragraph p{
+    width: 20rem;
+    color: white;
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  main{
+    grid-area: B;
+  }
+
+  main{
+    width: 22.2rem;
+    display: grid;
+    grid-template-areas:
+    "A D"
+    "C D"
+    "C B";
+  }
+
+  main div{
+    width: fit-content;
+    padding: 0;
+  }
+
+  main div:nth-child(1){
+    grid-area: A;
+  }
+
+  main div:nth-child(2){
+    grid-area: C;
+  }
+
+  main div:nth-child(3){
+    grid-area: B;
+  }
+
+  main div:nth-child(4){
+    grid-area: D;
+  }
+
+  main div:nth-child(5){
+    display: none;
+    grid-area: E;
+  }
+
+  main div:nth-child(6){
+    display:none;
+    grid-area: F;
+  }
+
+  .card{
+    padding: 0;
+    animation: downtop 800ms 200ms backwards;
+  }
+  
+
+}
+
+@media (min-width: 1450px) {
+  .page {
+    display: grid;
+    
+    grid-template-areas: "A B B B B";
+    height: 100%;
+  }
+  
+  body{
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  header{
+    grid-area: A;
+    height: 100%;
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  header img{
+    width: 21.4rem;
+    margin-bottom: 3.2rem;
+  }
+
+  div.block{
+    padding: 2rem 0 2rem 0;
+    margin: 0;
+  }
+
+  .paragraph p{
+    color: hsla(0, 0%, 100%, 1);
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+
+  .paragraph{
+    background-color: var(--fc-background);
+  }
+
+  main{
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+    "A B C"
+    "D B E"
+    "D F E";
+    
+    grid-area: B;
+
+    gap: 3.2rem;
+    padding: 6.4rem 9.8rem 12.4rem 9.8rem;
+  }
+
+  main div{
+    
+    width: 32rem;
+  }
+
+  main div:nth-child(1){
+    grid-area: A;
+  }
+
+  main div:nth-child(2){
+    grid-area: B;
+  }
+
+  main div:nth-child(3){
+    grid-area: F;
+  }
+
+  main div:nth-child(4){
+    grid-area: D;
+  }
+
+  main div:nth-child(5){
+    grid-area: E;
+    display: initial;
+  }
+
+  main div:nth-child(6){
+    grid-area: C;
+    display: initial;
+  }
+
+  
+}
